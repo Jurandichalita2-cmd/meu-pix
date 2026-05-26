@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu PIX</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .pix {
+      background: #eee;
+      padding: 15px;
+      border-radius: 10px;
+      word-break: break-all;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    button {
+      background: #28a745;
+      border: none;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    .msg {
+      margin-top: 10px;
+      font-size: 14px;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>💳 Meu PIX</h2>
+
+    <div class="pix" id="pix">
+      SUA_CHAVE_PIX_AQUI
+    </div>
+
+    <button onclick="copiarPix()">📋 Copiar PIX</button>
+
+    <div class="msg" id="msg"></div>
+  </div>
+
+  <script>
+    function copiarPix() {
+      const pix = document.getElementById("pix").innerText;
+
+      navigator.clipboard.writeText(pix).then(() => {
+        document.getElementById("msg").innerText = "PIX copiado com sucesso!";
+      }).catch(() => {
+        document.getElementById("msg").innerText = "Erro ao copiar.";
+      });
+    }
+  </script>
+
+</body>
+</html>
